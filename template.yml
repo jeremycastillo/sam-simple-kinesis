@@ -1,13 +1,13 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Resources:
   SimpleKinesis:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.handler
-      Runtime: nodejs12.x
-      Timeout: 10
-      Role: 'arn:aws:iam::274964377918:role/remy-lambda-kinesis'
+      CodeUri: ./src
+      Handler: simple_kinesis.app.lambda_handler
+      Runtime: python3.8
+      Role: "arn:aws:iam::274964377918:role/remy-lambda-kinesis"
       # Tracing: Active
       # Events:
       #   Stream:

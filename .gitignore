@@ -1,3 +1,4 @@
-response.json
 .aws-sam
+.tox
+*-env
 samconfig.toml

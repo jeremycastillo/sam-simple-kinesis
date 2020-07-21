@@ -1,0 +1,5 @@
+setup.py
+src/simple_kinesis.egg-info/PKG-INFO
+src/simple_kinesis.egg-info/SOURCES.txt
+src/simple_kinesis.egg-info/dependency_links.txt
+src/simple_kinesis.egg-info/top_level.txt
