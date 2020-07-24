@@ -1,9 +1,10 @@
 name: simple-kinesis-pr
 
-pull_request:
-    types: [opened, synchronize]
-    branches:
-      - development
+on:
+  pull_request:
+      types: [opened, synchronize]
+      branches:
+        - development
 
 jobs:
   build:
