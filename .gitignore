@@ -4,4 +4,4 @@
 samconfig.toml
 __py
 *.egg-info/
-*/__pycache__/
+__pycache__
