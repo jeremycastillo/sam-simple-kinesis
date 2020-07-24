@@ -1,13 +1,13 @@
 SERVICE=SimpleKinesis
 
-build:
+test:
+	tox
+
+build: test
 	sam build -m requirements.txt --use-container
 
-run:
+run: build
 	sam local invoke "$(SERVICE)" -e ./events/event.json
-
-test: build
-	tox
 
 zip:
 	./zip.bash $(SERVICE)

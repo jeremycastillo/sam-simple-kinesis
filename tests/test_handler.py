@@ -8,11 +8,21 @@ app.CONTEXT_SLEEP_TEST_SECONDS = 0
 
 
 @pytest.fixture()
-def lambda_event():
+def lambda_event_valid():
     return {
         'Records': [
           {
             'kinesis': {'data': 'eW8gbW9tbWE='}
+          }
+        ]
+    }
+
+@pytest.fixture()
+def lambda_event_invalid():
+    return {
+        'Records': [
+          {
+            'kinesis': {'data': 'ZGVybw=='}
           }
         ]
     }
@@ -34,6 +44,10 @@ class MockContext:
         return 30000
 
 
-def test_handler(lambda_event, lambda_context):
-    response = app.lambda_handler(lambda_event, lambda_context)
+def test_handler_valid(lambda_event_valid, lambda_context):
+    response = app.lambda_handler(lambda_event_valid, lambda_context)
     assert response['valid'] == True
+
+def test_handler_invalid(lambda_event_invalid, lambda_context):
+    response = app.lambda_handler(lambda_event_invalid, lambda_context)
+    assert response['valid'] == False
