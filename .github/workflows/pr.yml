@@ -27,13 +27,13 @@ jobs:
       - name: display python version
         run: python -c "import sys; print(sys.version)"
 
-      # - name: Install dependencies
-      #   run: |
-      #     python -m pip install --upgrade pip
-      #     pip install tox tox-gh-actions
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install tox tox-gh-actions
       
-      # - name: Test with tox
-      #   run: tox
+      - name: Test with tox
+        run: tox
       
       # - name: sam build
       #   uses: youyo/aws-sam-action/python3.8@master
